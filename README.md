@@ -1,76 +1,76 @@
 # Amazon Product Scraper
 
-Este é um simples scraper para buscar listagens de produtos na Amazon a partir de uma palavra-chave fornecida. O projeto está dividido em duas partes: o backend, que faz o scraping e fornece os dados via API, e o frontend, que exibe esses dados de maneira simples e amigável para o usuário.
+This is a simple scraper to fetch product listings on Amazon based on a provided keyword. The project is divided into two parts: the backend, which does the scraping and provides the data via API, and the frontend, which displays this data in a simple and user-friendly way.
 
-## Funcionalidades
+## Features
 
-- O backend é responsável por buscar informações de produtos na Amazon, como título, avaliação, número de avaliações e URL da imagem.
-- O frontend é uma interface simples onde o usuário pode inserir uma palavra-chave e visualizar os produtos encontrados.
+- The backend is responsible for fetching product information from Amazon, such as title, rating, number of reviews, and image URL.
+- The frontend is a simple interface where the user can enter a keyword and view the found products.
 
-## Tecnologias Usadas
+## Technologies Used
 
 - **Backend**: Bun, Express, Axios, JSDOM
 - **Frontend**: HTML, CSS, Vanilla JavaScript, Vite
-- **Dependências adicionais**: axios-retry, cors
+- **Additional Dependencies**: axios-retry, cors
 
-## Requisitos
+## Requirements
 
-Antes de rodar o projeto, você precisa ter o [Bun](https://bun.sh/) instalado no seu sistema. Além disso, o frontend requer o Vite para desenvolvimento.
+Before running the project, you need to have [Bun](https://bun.sh/) installed on your system. Additionally, the frontend requires Vite for development.
 
-## Como Rodar
+## How to Run
 
 ### Backend
 
-1. Navegue até a pasta `server`:
+1. Navigate to the `server` folder:
    ```bash
    cd server
-2. Instale as dependências do backend:
+2. Install the backend dependencies:
    ```bash
    bun install
-3. Para rodar o backend, execute:
+3. To run the backend, execute:
    ```bash
    bun run index.ts
-O servidor estará disponível em http://localhost:3000.
+The server will be available at http://localhost:3000.
 
 ### Frontend
 
-1. Navegue até a pasta `client`:
+1. Navigate to the `client` folder:
    ```bash
    cd client
-2. Instale as dependências do frontend `client`:
+2. Install the frontend dependencies:
    ```bash
    npm install
-3. Para rodar o frontend, execute:
+3. To run the frontend, execute:
    ```bash
    npm run dev
-O frontend estará disponível em http://localhost:5173.
+The frontend will be available at http://localhost:5173.
 
-## Como Usar
+## How to Use
 
-1. Acesse a interface no frontend em `http://localhost:5173`.
-2. Digite uma palavra-chave na caixa de pesquisa e clique em "Search".
-3. Os produtos correspondentes serão exibidos, com informações como título, avaliação, número de avaliações e imagem.
+1. Access the interface on the frontend at `http://localhost:5173`.
+2. Enter a keyword in the search box and click "Search".
+3. The corresponding products will be displayed, with information such as title, rating, number of reviews, and image.
 
 ## Endpoints
 
 ### /api/scrape
-- **Método**: GET
-- **Parâmetro**: `keyword` (palavra-chave para pesquisa)
+- **Method**: GET
+- **Parameter**: `keyword` (keyword for search)
 
-**Exemplo de requisição**:
+**Example request**:
 ```bash
 GET http://localhost:3000/api/scrape?keyword=notebook
 ```
 
-## A resposta será uma lista de objetos de produtos, contendo:
+## The response will be a list of product objects, containing:
 
-- `title`: Título do produto
-- `rating`: Avaliação do produto
-- `reviews`: Número de avaliações
-- `image`: URL da imagem do produto
+- `title`: Product title
+- `rating`: Product rating
+- `reviews`: Number of reviews
+- `image`: Product image URL
 
-## Considerações
+## Considerations
 
-- O projeto utiliza **CORS** para permitir que o frontend acesse a API sem problemas.
-- O backend implementa o **axios-retry** para tentar novamente em caso de falhas temporárias na requisição (status 503).
-- A interface foi projetada para ser simples e responsiva.
+- The project uses CORS to allow the frontend to access the API without issues.
+- The backend implements axios-retry to retry in case of temporary request failures (status 503).
+- The interface is designed to be simple and responsive.
