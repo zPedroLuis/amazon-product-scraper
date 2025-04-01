@@ -2,7 +2,8 @@ import express, { type Request, type Response } from "express";
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import { JSDOM } from "jsdom";
-import { setTimeout } from "timers/promises"
+import { setTimeout } from "timers/promises";
+import cors from "cors";
 
 const app = express();
 const PORT = 3000;
@@ -23,9 +24,11 @@ axiosRetry(axios, {
     return retryCount * 2000; // Espera 2 segundos por tentativa
   },
   retryCondition: (error) => {
-    return error.response?.status === 503; // Só retenta se o status for 503
+    return error.response?.status === 503; // Só tenta novamente se o status for 503
   },
 });
+
+app.use(cors());
 
 // Função para realizar o scraping
 async function scrapeAmazon(keyword: string): Promise<Product[]> {
@@ -55,9 +58,7 @@ async function scrapeAmazon(keyword: string): Promise<Product[]> {
     const items = document.querySelectorAll("[data-component-type='s-search-result']");
 
     items.forEach((item: Element) => {
-      
-      const title = item.querySelector("h2[aria-label]")?.getAttribute("aria-label") || "N/A";
-    
+      const title = item.querySelector("h2[aria-label]")?.getAttribute("aria-label") || "N/A";    
       const ratingElement = item.querySelector(".a-icon-star-small .a-icon-alt");
       const reviewsElement = item.querySelector(".a-size-base.s-underline-text");
       const imageElement = item.querySelector(".s-image");
