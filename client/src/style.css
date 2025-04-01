@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.container {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+}
+
+#search-form {
+  margin-bottom: 20px;
+}
+
+#keyword {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o container de resultados */
+.results-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Estilo dos produtos */
+.product {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+/* Imagem do produto */
+.product img {
+  max-width: 150px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+/* Títulos e informações do produto */
+.product h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.product p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.product p:first-child {
+  font-weight: bold;
+}
